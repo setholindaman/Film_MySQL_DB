@@ -2,7 +2,7 @@
 
 ## Installation Instructions
 
-* Refer to the [installation guide](Installation.md) to install the necessary files.
+* Refer to the [installation guide](installation.md) to install the necessary files.
 
 ## Tasks
 
