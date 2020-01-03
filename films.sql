@@ -1,7 +1,7 @@
 use sakila;
 
 -- Display the first and last names of all actors from the table actor.
-select last_name, first_name from actor;
+select first_name, last_name from actor;
 
 -- Display the first and last name of each actor in a single column in upper case letters. Name the column Actor Name.
 alter table actor
@@ -12,7 +12,9 @@ set actor_name = concat(first_name," ", last_name);
 
 select * from actor;
 
--- You need to find the ID number, first name, and last name of an actor, of whom you know only the first name, "Joe." What is one query would you use to obtain this information?
+-- You need to find the ID number, first name, and last name of an actor, of whom you know only the first name, "Joe." 
+-- What is one query would you use to obtain this information?
+
 select actor_id, first_name, last_name 
 from actor 
 where first_name = "Joe";
@@ -35,7 +37,10 @@ from country
 where country in ('Afghanistan', 'Bangladesh', 'China')
 order by country_id;
 
--- You want to keep a description of each actor. You don't think you will be performing queries on a description, so create a column in the table actor named description and use the data type BLOB (Make sure to research the type BLOB, as the difference between it and VARCHAR are significant).
+-- You want to keep a description of each actor. You don't think you will be performing queries on a description, 
+-- so create a column in the table actor named description and use the data type BLOB (Make sure to research the type BLOB, 
+-- as the difference between it and VARCHAR are significant).
+
 alter table actor
 add column description blob;
 
@@ -46,7 +51,8 @@ alter table actor
 drop column description; 
 
 -- List the last names of actors, as well as how many actors have that last name.
--- List last names of actors and the number of actors who have that last name, but only for names that are shared by at least two actors
+-- List last names of actors and the number of actors who have that last name, 
+-- but only for names that are shared by at least two actors
 SELECT last_name, COUNT(last_name) as count
 FROM actor
 group by last_name
@@ -219,5 +225,4 @@ limit 5;
 select * from top_five_genres;
 
 -- You find that you no longer need the view top_five_genres. Write a query to delete it.
-drop view if exists
-	top_five_genres;
+drop view if exists	top_five_genres;
